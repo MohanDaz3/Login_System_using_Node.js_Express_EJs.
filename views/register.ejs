@@ -1,0 +1,45 @@
+
+<%-include('header')-%>
+
+
+    <div class="text-center center-div" id="login">
+        
+        <div class="container w-25 border border-secondary rounded py-5">
+            <div class="title pb-5">
+                <h2 class="font-weight-bold">Register</h2> 
+                <span>Resgister for login</span>
+                <% if(locals.logout){%>
+                    <div id=" msg" class="alert alert-success text-center"role="alert">
+                        <%=logout%>
+                    </div>
+                  <%}%>  
+                  <% if(locals.invalid){%>
+                    <div id=" msg" class="alert alert-danger text-center"role="alert">
+                        <%=invalid%>
+                    </div>
+                  <%}%> 
+            </div>
+            <form action="/route/register" method="POST" class="pt-2">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" placeholder="Full name">
+                
+                </div>
+                <div class="form-group pt-3">
+                    <input type="email" class="form-control" name="email" placeholder="email">
+                    
+                </div>
+                <div class="form-group pt-3">
+                    <input type="password" class="form-control" name="password" placeholder="password">
+                </div>
+                <button class="btn btn-success rounded-pill buttn" type="submit">Submit</button>
+                <div class="text-center">
+                    <p>Already have an account? <a href="/">Login</a></p>
+                  
+                  </div>
+            </form>
+        </div>
+    </div>
+    
+
+   
+<%-include('footer')-%>
