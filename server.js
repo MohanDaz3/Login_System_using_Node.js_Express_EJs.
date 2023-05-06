@@ -35,13 +35,13 @@ app.use(nocache());
 
 //home route
 app.get('/',(req,res)=>{
-    res.redirect('/route/dashboard');
+    res.redirect('/dashboard');
     
 })
 
 const goToHomeIfLoggedIn = (req, res, next) => {
     if(req.session.user) {
-        res.redirect('/route/dashboard');
+        res.redirect('/dashboard');
     } else {
         next();
     }
@@ -53,6 +53,6 @@ app.get('/register', goToHomeIfLoggedIn, (req,res)=>{
 })
 
 
-app.use('/route',router)
+app.use('/',router)
 
 app.listen(port,()=>console.log(`server started at http://localhost:${port}`))

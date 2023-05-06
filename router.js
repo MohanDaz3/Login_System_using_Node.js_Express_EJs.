@@ -7,7 +7,7 @@ const users = new Map();
 
 const goToHomeIfLoggedIn = (req, res, next) => {
     if(req.session.user) {
-        res.redirect('/route/dashboard');
+        res.redirect('/dashboard');
     } else {
         next();
     } 
@@ -69,13 +69,13 @@ router.post("/login", goToHomeIfLoggedIn, async (req, res) => {
   }
   req.session.user = user;
   req.session.name=user.name;
-  res.redirect("/route/dashboard");
+  res.redirect("/dashboard");
 });
 
 
 const goToLoginIfNotLoggedIn = (req, res, next) => {
     if(!req.session.user) {
-        res.redirect('/route/login');
+        res.redirect('/login');
     } else {
         next();
     }
